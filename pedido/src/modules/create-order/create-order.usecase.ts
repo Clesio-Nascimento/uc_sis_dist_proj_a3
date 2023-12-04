@@ -14,7 +14,7 @@ export class CreateOrderUseCase {
     async execute(data: CreateOrderRequest) {
         const order = await prismaClient.order.create({
             data: {
-                CustomerId: data.customerId,                
+                customerId: data.customerId,                
                 status: "AGUARDANDO PAGAMENTO",
                 OrderItems: {
                     createMany: {

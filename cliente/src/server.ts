@@ -1,4 +1,5 @@
 import express from "express"
+import "./infra/provider/kafka/consumer"
 import { router } from "./infra/routes";
 
 const app = express();

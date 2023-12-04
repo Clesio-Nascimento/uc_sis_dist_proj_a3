@@ -29,9 +29,9 @@ model Product {
 
 model Order {
   id       String    @id @default(uuid())
-  customer Customer  @relation(fields: [CustomerId], references: [id])
+  customer Customer  @relation(fields: [customerId], references: [id])
   createdAt DateTime @default(now())
-  CustomerId String
+  customerId String
   OrderItems OrderItems[]
   status String
 

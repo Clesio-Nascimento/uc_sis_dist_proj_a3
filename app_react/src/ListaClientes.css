@@ -1,0 +1,52 @@
+/* ListaClientes.css */
+
+.clientes-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f7f7f7;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .clientes-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .clientes-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .cliente-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  }
+  
+  .cliente-icon {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  .cliente-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cliente-name {
+    font-weight: bold;
+  }
+  
+  .cliente-email {
+    display: flex;
+    align-items: center;
+  }
+  
+  .email-icon {
+    margin-right: 5px;
+  }
+  

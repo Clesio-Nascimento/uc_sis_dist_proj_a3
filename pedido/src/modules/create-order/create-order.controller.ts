@@ -8,6 +8,7 @@ export class CreateOrderController {
 
     async handle(request: Request, response: Response){
         const useCase = new CreateOrderUseCase();
+        
         const order = await useCase.execute(request.body);
         return response.json(order)
     }  
