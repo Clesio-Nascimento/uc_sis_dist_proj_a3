@@ -8,8 +8,6 @@ type CreateOrderRequest = {
 export class CreateOrderUseCase {
     constructo() { }
 
-    // Requisição para API de produtos para verificar se tem estoque do produto
-    // axios.get('/product')
 
     async execute(data: CreateOrderRequest) {
         const order = await prismaClient.order.create({

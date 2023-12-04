@@ -1,3 +1,5 @@
+
+
 import React, { useState } from 'react';
 import './HomePage.css'; // Arquivo de estilos CSS
 
@@ -15,22 +17,20 @@ const HomePage = () => {
         <nav>
           <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/cadastro">Cadastro</a></li>
+            <li><a href="/clientes">Clientes</a></li>
             <li><a href="/pedidos">Pedidos</a></li>
-            <li><a href="/produtos">Produtos</a></li>
-            <li><a href="/clientes">clientes</a></li>
+            <li><a href="/produtos">Produtos</a></li>           
+            
           </ul>
         </nav>
       </header>
       <main>
         <section>
-          <h2>Bem-vindo à cayle store!</h2>
-          <p>Esta é uma página inicial simples criada em ReactJS.</p>
-          <button onClick={incrementCount}>Clique Aqui!</button>
-          <p>Você clicou {count} vezes.</p>
+          <h2>Bem-vindo à Cayle Store!</h2>
+          
         </section>
         <section className="image-section">
-          <img src="https://via.placeholder.com/400" alt="Imagem de exemplo" />
+          <img src="https://marketplace.canva.com/EAFb9QOJg5g/1/0/1600w/canva-banner-para-loja-online-frete-gr%C3%A1tis-mercado-shops-m%C3%A9dio-paTGOKamJ9A.jpg" alt="Imagem de exemplo" />
         </section>
       </main>
       <footer>

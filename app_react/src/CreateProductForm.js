@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './CreateProductForm.css'; // Certifique-se de ter o arquivo CSS
 
 const CreateProductForm = () => {
   const [formData, setFormData] = useState({
@@ -12,78 +11,145 @@ const CreateProductForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    
+    // Converte os valores para números se os campos forem quantity ou price
+    const newValue = (name === 'quantity' || name === 'price') ? parseFloat(value) : value;
+
+    setFormData({ ...formData, [name]: newValue });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Lógica para enviar os dados do produto para o backend
+    if (!formData.name || !formData.code || !formData.quantity || !formData.price) {
+      setFeedback('Por favor, preencha todos os campos.');
+      return;
+    }
+
     try {
-      // Implemente o código de envio dos dados para o backend
-      setFeedback('Produto criado com sucesso!');
-      setFormData({
-        name: '',
-        code: '',
-        quantity: '',
-        price: '',
+      const response = await fetch('http://localhost:3003/products', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
+
+      if (response.ok) {
+        const newProduct = await response.json();
+        setFeedback(`Produto criado com sucesso! ID: ${newProduct.id}`);
+      } else {
+        const errorMessage = await response.text();
+        setFeedback(`Erro ao criar produto: ${errorMessage}`);
+      }
     } catch (error) {
       setFeedback('Erro ao conectar-se ao servidor.');
     }
   };
 
+  const styles = {
+    container: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: '100vh',
+      backgroundColor: '#f0f0f0',
+    },
+    heading: {
+      marginBottom: '20px',
+      color: '#333',
+    },
+    form: {
+      width: '300px',
+      textAlign: 'center',
+    },
+    formGroup: {
+      marginBottom: '15px',
+    },
+    label: {
+      display: 'block',
+      marginBottom: '5px',
+      color: '#555',
+      fontSize: '16px',
+      fontWeight: 'bold',
+    },
+    input: {
+      padding: '8px',
+      width: '100%',
+      borderRadius: '4px',
+      border: '1px solid #ccc',
+    },
+    button: {
+      padding: '8px 20px',
+      fontSize: '16px',
+      backgroundColor: '#007bff',
+      color: '#fff',
+      border: 'none',
+      borderRadius: '4px',
+      cursor: 'pointer',
+    },
+    feedback: {
+      marginTop: '20px',
+      color: 'green',
+    },
+  };
+
   return (
-    <div className="form-container">
-      <h2>Criar Produto</h2>
-      <form onSubmit={handleSubmit} className="product-form">
-        <div className="form-group">
-          <label htmlFor="name">Nome:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Nome do produto"
-          />
+    <div style={styles.container}>
+      <h2 style={styles.heading}>Criar Produto</h2>
+      <form onSubmit={handleSubmit} style={styles.form}>
+        <div style={styles.formGroup}>
+          <label style={styles.label}>
+            Nome:
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              style={styles.input}
+            />
+          </label>
         </div>
-        <div className="form-group">
-          <label htmlFor="code">Código:</label>
-          <input
-            type="text"
-            id="code"
-            name="code"
-            value={formData.code}
-            onChange={handleChange}
-            placeholder="Código do produto"
-          />
+        <div style={styles.formGroup}>
+          <label style={styles.label}>
+            Código:
+            <input
+              type="text"
+              name="code"
+              value={formData.code}
+              onChange={handleChange}
+              style={styles.input}
+            />
+          </label>
         </div>
-        <div className="form-group">
-          <label htmlFor="quantity">Quantidade:</label>
-          <input
-            type="number"
-            id="quantity"
-            name="quantity"
-            value={formData.quantity}
-            onChange={handleChange}
-            placeholder="Quantidade disponível"
-          />
+        <div style={styles.formGroup}>
+          <label style={styles.label}>
+            Quantidade:
+            <input
+              type="number"
+              name="quantity"
+              value={formData.quantity}
+              onChange={handleChange}
+              style={styles.input}
+            />
+          </label>
         </div>
-        <div className="form-group">
-          <label htmlFor="price">Preço:</label>
-          <input
-            type="number"
-            id="price"
-            name="price"
-            value={formData.price}
-            onChange={handleChange}
-            placeholder="Preço do produto"
-          />
+        <div style={styles.formGroup}>
+          <label style={styles.label}>
+            Preço:
+            <input
+              type="number"
+              name="price"
+              value={formData.price}
+              onChange={handleChange}
+              style={styles.input}
+            />
+          </label>
         </div>
-        <button type="submit">Criar Produto</button>
+        <button type="submit" style={styles.button}>Criar Produto</button>
       </form>
-      {feedback && <p>{feedback}</p>}
+      {feedback && <p style={styles.feedback}>{feedback}</p>}
     </div>
   );
 };

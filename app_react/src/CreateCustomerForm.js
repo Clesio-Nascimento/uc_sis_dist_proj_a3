@@ -33,10 +33,10 @@ const CreateCustomerForm = () => {
 
       if (response.ok) {
         const newCustomer = await response.json();
-        setFeedback(`Cliente criado com sucesso! ID: ${newCustomer.id}`);
+        setFeedback(`Produto com sucesso! ID: ${newCustomer.id}`);
       } else {
         const errorMessage = await response.text();
-        setFeedback(`Erro ao criar cliente: ${errorMessage}`);
+        setFeedback(`Erro ao criar produto: ${errorMessage}`);
       }
     } catch (error) {
       setFeedback('Erro ao conectar-se ao servidor.');
