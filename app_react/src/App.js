@@ -10,6 +10,7 @@ import Produto from './Produto';
 import CreateProductForm from './CreateProductForm';
 import Cliente from './Cliente';
 import Pedido from './Pedido';
+import CreateOrder from './CreateOrder';
 
 
 const App = () => {
@@ -22,10 +23,12 @@ const App = () => {
           <Route path="/cadastrocliente" element={<CreateCustomerForm />} />
           <Route path="/produtos" element={<Produto />} />
           <Route path="/listaclientes" element={<ListaClientes />} />
-          <Route path="/listaprodutos" element={<ListaProdutos />} />
+          <Route path="/listaprodutos" element={<ListaProdutos />}s />
           <Route path="/cadastrarprodutos" element={<CreateProductForm />} />
           <Route path="/clientes" element={<Cliente />} />
-          <Route path="/pedidos" element={<Pedido />} />          
+          <Route path="/pedidos" element={<Pedido />} />
+          <Route path="/cadastraorder" element={<CreateOrder />} />
+
         </Routes>
       </div>
     </Router>

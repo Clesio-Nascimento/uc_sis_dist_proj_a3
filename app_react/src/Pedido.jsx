@@ -6,17 +6,12 @@ const Produto = () => {
   return (
     <div className="container">
       <header>
-        <h1>Cayle Store</h1>
-        <nav>
-          <ul>
-            <li><Link to="/cadastrar-produtos">Cadastrar Produtos</Link></li>
-            <li><Link to="/produtos-cadastrados">Produtos Cadastrados</Link></li>
-          </ul>
-        </nav>
+        <Link to="/"><h1>Cayle Store</h1></Link>
+
       </header>
       <main>
         <section className="buttons-section">
-          <Link to="/cadastrarprodutos" className="custom-button">Cadastrar Produtos</Link>
+          <Link to="/cadastraorder" className="custom-button">Cadastrar Pedido</Link>
           <Link to="/listaprodutos" className="custom-button">Ver Produtos Cadastrados</Link>
         </section>
       </main>

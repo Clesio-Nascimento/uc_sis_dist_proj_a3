@@ -13,7 +13,7 @@ function ListaClientes() {
       .catch(error => console.error('Erro ao buscar clientes:', error));
   }, []); // O segundo argumento vazio faz com que este efeito só execute uma vez
 
-  return (
+  return (    
     <div className="clientes-container">
       <h1 className="clientes-title">Lista de Clientes</h1>
       <ul className="clientes-list">

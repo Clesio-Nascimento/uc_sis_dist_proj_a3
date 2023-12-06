@@ -6,13 +6,7 @@ const Cliente = () => {
   return (
     <div className="container">
       <header>
-        <h1>Cayle Store</h1>
-        <nav>
-          <ul>
-            <li><Link to="/cadastrar-produtos">Cadastrar Cliente</Link></li>
-            <li><Link to="/produtos-cadastrados">Clientes Cadastrados</Link></li>
-          </ul>
-        </nav>
+      <Link to="/"><h1>Cayle Store</h1></Link>
       </header>
       <main>
         <section className="buttons-section">
