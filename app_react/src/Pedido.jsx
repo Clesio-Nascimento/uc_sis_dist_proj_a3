@@ -12,7 +12,8 @@ const Produto = () => {
       <main>
         <section className="buttons-section">
           <Link to="/cadastraorder" className="custom-button">Cadastrar Pedido</Link>
-          <Link to="/listaprodutos" className="custom-button">Ver Produtos Cadastrados</Link>
+          <Link to="/listaorder" className="custom-button">Lista de Pedidos</Link>
+          <Link to="/status" className="custom-button">Altera status</Link>
         </section>
       </main>
       <footer>

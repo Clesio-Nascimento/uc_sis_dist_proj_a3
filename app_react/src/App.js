@@ -11,6 +11,9 @@ import CreateProductForm from './CreateProductForm';
 import Cliente from './Cliente';
 import Pedido from './Pedido';
 import CreateOrder from './CreateOrder';
+import OrdersList from './OrdersList';
+import UpdateOrderStatus from './UpdateOrderStatus';
+
 
 
 const App = () => {
@@ -28,6 +31,8 @@ const App = () => {
           <Route path="/clientes" element={<Cliente />} />
           <Route path="/pedidos" element={<Pedido />} />
           <Route path="/cadastraorder" element={<CreateOrder />} />
+          <Route path="/listaorder" element={<OrdersList />} />
+          <Route path="/status" element={<UpdateOrderStatus />} />
 
         </Routes>
       </div>
