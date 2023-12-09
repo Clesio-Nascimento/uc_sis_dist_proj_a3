@@ -14,9 +14,9 @@ Passos para instalar o projeto:
 
 1. git clone -b master https://github.com/Clesio-Nascimento/uc_sis_dist_proj_a3.git
 2. npm install
-3. cria o arquivo .env
-4. criar os databade dos respectivos microsserviços no postgresql
-5. excluir o repositório de cada microsserviço migrations, ele está localizado dentro da pasta chamada prisma
+3. crie o arquivo .env 
+4. criar os database dos respectivos microsserviços no postgresql
+5. exclua a pasta em migrations, ele está localizado dentro da pasta chamada prisma
 6. feito as exclusôes, executar os seguite comando para cada microsserviço para criar as tabelas 
 7. npx prisma migrate dev --name aqui pode colocar o nome de sua preferencia
    
